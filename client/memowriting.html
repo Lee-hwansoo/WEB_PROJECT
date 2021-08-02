@@ -1,0 +1,33 @@
+<template name="memo_writing">
+    <div id="memo_writing">
+        <section class="jumbotron">
+            <div class="container text-center">
+                <h1>일정 작성</h1>
+            </div>
+        </section>
+        {{#with memo}}
+        <div class="container">
+            <div class="row">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <td>날짜</td>
+                        <td><input id="inp-day" type="date" value="{{date}}" required></td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>내용</td>
+                        <td><div id="editor">{{{text}}}</div></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {{/with}}
+        <div class="container text-right">
+            <a href="/memo" id="btn-head-cancel" class="btn btn-outline-dark">취소</a>
+            <a href="#" id="btn-head-write" class="btn btn-dark">작성</a>
+        </div>
+    </div>
+</template>

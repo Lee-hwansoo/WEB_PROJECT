@@ -1,0 +1,46 @@
+<template name="diary_view">
+    {{#with diarys}}
+    <div id="diary_view" class="container">
+        <div class="text-center" style="border-radius: 25px; padding: 20px;"><audio src="{{link}}" controls></audio></div>
+        <section class="jumbotron mt-4" style="background-color: white; border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
+            <button id="btn-remove" class="close" style="float: right;">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <a href="/diary_writing/{{_id}}" style="float:right;">수정</a>
+            <div>날짜: {{date}}</div>
+            <div>제목: {{diary.title}}</div>
+            <div>작성 시간: {{createdAt}}</div>
+        </section>
+        <section class="jumbotron mt-4" style="background-color: white; border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
+        <div class="mt-2">내용:</div>
+        <div class="mt-2">{{{diary.text}}}</div>
+        </section>
+        <section class="jumbotron mt-4" style="background-color: white; border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
+            <div class="container">
+                <div class="row">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">시간</th>
+                            <th scope="col">금액</th>
+                            <th scope="col">내용</th>
+                            <th scope="col">사용</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {{#each money_detail}}
+                            <tr>
+                                <td>{{time}}</td>
+                                <td>{{money}}</td>
+                                <td>{{text}}</td>
+                                <td>{{option}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+    {{/with}}
+</template>

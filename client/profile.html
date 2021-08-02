@@ -1,0 +1,39 @@
+<template name="profile">
+    <section class="jumbotron text-center">
+        <div class="container" id="profile">
+            <section>
+                {{#if currentUser}}
+                    <div class="container">
+                        <p><h4>회원정보</h4></p>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-2 col-sm-1"></div>
+                            <div class="col-lg-6 col-md-8 col-sm-10">
+                                <div class="input-group mb-1">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">이름</span>
+                                    </div>
+                                    <input id="inp-name" type="text" class="form-control" placeholder="ex> John Doe" value="{{currentUser.username}}">
+                                </div>
+                                <div class="input-group mb-1">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">주소</span>
+                                    </div>
+                                    <input id="inp-address" type="text" class="form-control" placeholder="ex> 123 Street, Seoul, Korea" value="{{currentUser.profile.address}}">
+                                </div>
+                                <div class="input-group mb-1">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">휴대폰</span>
+                                    </div>
+                                    <input id="inp-mobile" type="text" class="form-control" placeholder="ex> 010-1234-5678" value="{{currentUser.profile.mobile}}">
+                                </div>
+                                <button id="btn-update-profile" class="btn btn-dark btn-lg btn-block">프로필 업데이트</button>
+                            </div>
+                            <div class="col-lg-3 col-md-2 col-sm-1"></div>
+                        </div>
+                    </div>
+                {{/if}}
+            </section>
+        </div>
+    </section>
+
+</template>

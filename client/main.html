@@ -1,0 +1,27 @@
+<template name="main">
+    {{#if currentUser}}
+        {{> memo }}
+    {{else}}
+  <div id="main" class="text-center">
+    <div class="form">
+
+        {{#if isSignUpMode}}  <!-- 회원가입모드 일 경우 -->
+          <h1 class="h3 mb-3 font-weight-normal">회원가입</h1>
+          <input id="inp-email" type="email" class="form-control mb-1" placeholder="Email address" required autofocus>
+          <input id="inp-password" type="password" class="form-control mb-1" placeholder="Password" required>
+          <input id="inp-passwordConfirm" type="password" class="form-control mb-1" placeholder="Password" required>
+          <button id="btn-signUp" class="btn btn-lg btn-outline-dark btn-block">회원가입</button>
+          <button id="btn-back" class="btn btn-lg btn-dark btn-block">뒤로가기</button>
+        {{else}} <!-- 회원가입모드가 아닐 경우 -->
+          <h1 class="h3 mb-3 font-weight-normal">로그인</h1>
+          <input id="inp-email" type="email" class="form-control mb-1" placeholder="Email address" required autofocus>
+          <input id="inp-password" type="password" class="form-control mb-1" placeholder="Password" required>
+          <button id="btn-signIn" class="btn btn-lg btn-outline-dark btn-block">로그인</button>
+          <button id="btn-signUpMode" class="btn btn-lg btn-dark btn-block">회원가입</button>
+        {{/if}}
+
+      <p class="mt-5 mb-3 text-muted">&copy; Copyright on MANAGER</p>
+    </div>
+  </div>
+    {{/if}}
+</template>

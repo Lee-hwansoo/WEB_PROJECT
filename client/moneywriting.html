@@ -1,0 +1,49 @@
+<template name="money_writing">
+    <div id="money_writing">
+        <section class="jumbotron">
+            <div class="container text-center">
+                <h3>가계부작성</h3>
+            </div>
+        </section>
+        <div class="container">
+            <div class="row">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <td>날짜</td>
+                        <td><input id="inp-day" type="date" required></td>
+                    </tr>
+                    </thead>
+                    <thead>
+                    <tr>
+                        <td>시간</td>
+                        <td><input id="inp-time" type="time" required></td>
+                    </tr>
+                    </thead>
+                    <thead>
+                    <tr>
+                        <td>금액</td>
+                        <td>
+                            <input id="inp-money" type="text">
+                            <select id="select-money">
+                                <option value="수입">수입</option>
+                                <option value="지출">지출</option>
+                            </select>
+                        </td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>내용</td>
+                        <td><input id="inp-money-text" type="text"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="container text-right">
+            <a href="/diary" id="btn-money-cancel" class="btn btn-outline-dark">취소</a>
+            <a href="/diary" id="btn-money-save" class="btn btn-dark">작성</a>
+        </div>
+    </div>
+</template>

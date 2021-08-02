@@ -1,0 +1,73 @@
+<template name="memo">
+    <div id="memo">
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1>일정 목록</h1>
+                    <a href="/memo_writing/newPosting" class="btn btn-dark">할 일 작성</a>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="row">
+                    {{#each memos}}
+                        <div class="col-md-4">
+                            <div class="mb-4 shadow-sm">
+                                <div class="card-head">
+                                    <div class="card-text">
+                                        {{date}}
+                                        <button id="btn-remove" class="close" style="float: right;">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <a href="/memo_writing/{{_id}}" class="btn btn-sm btn-outline-secondary" style="float: right;">수정</a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">{{{text}}}</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="/diary_writing/newPosting" id="diary_writing" class="btn btn-sm btn-outline-secondary">일기 작성</a>
+                                            <a href="/money_writing" id="money_writing" class="btn btn-sm btn-outline-secondary">가계부 작성</a>
+                                        </div>
+                                        <small class="text-muted">{{YMDHMS}}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="login_navbar">
+    <div id="login_navbar">
+        {{#if currentUser}}
+        <nav class="navbar navbar-expand-md navbar-dark bg-secondary text-right">
+            <a href="/memo" class="navbar-brand">MANAGER</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/memo">일정</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/diary">일기장</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown dropleft">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">{{currentUser.emails.[0].address}}</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/update_profile">프로필</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/" id="logout">로그아웃</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        {{/if}}
+    </div>
+</template>

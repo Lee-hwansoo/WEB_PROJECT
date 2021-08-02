@@ -1,0 +1,45 @@
+<template name="diary_writing">
+    <div id="diary_writing">
+        <section class="jumbotron">
+            <div class="container text-center">
+                <h1>일기 작성</h1>
+            </div>
+        </section>
+        {{#with diarys}}
+        <div class="container">
+            <div class="row">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <td>날짜</td>
+                        <td><input id="inp-day" type="date" value="{{date}}" required></td>
+                    </tr>
+                    </thead>
+                    <thead>
+                    <tr>
+                        <td>제목</td>
+                        <td><input id="inp-name" type="text" value="{{diary.title}}" required></td>
+                    </tr>
+                    </thead>
+                    <thead>
+                    <tr>
+                        <td>노래(mp3)</td>
+                        <td><input id="inp-music" type="file" accept=".mp3" required>{{file}}</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>내용</td>
+                        <td><div id="editor">{{{diary.text}}}</div></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {{/with}}
+        <div class="container text-right">
+            <a href="/diary" id="btn-diary-cancel" class="btn btn-outline-dark">취소</a>
+            <a href="#" id="btn-diary-write" class="btn btn-dark">작성</a>
+        </div>
+    </div>
+</template>
